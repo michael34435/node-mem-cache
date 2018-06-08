@@ -93,6 +93,8 @@ var Cache = function(options) {
         _length --;
         shouldRemoveExpiration(item);
         delete cache[key];
+        
+        onTimer()
         return item.value;
     };
 
