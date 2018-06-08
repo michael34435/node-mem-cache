@@ -89,12 +89,16 @@ var Cache = function(options) {
     this.remove =function (key) {
         var item = cache[key];
         if (!item) return null;
-
+        
+        this.emit("expired", {
+            key: item.key,
+            value: item.value
+        })
+        
         _length --;
         shouldRemoveExpiration(item);
         delete cache[key];
-        
-        onTimer()
+
         return item.value;
     };
 
