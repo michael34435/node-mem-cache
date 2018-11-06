@@ -52,6 +52,10 @@ var Cache = function(options) {
       get : function(){ return Object.keys(cache); }
     });
 
+    this.find = function (key) {
+        return cache[key]
+    }
+    
     /*
     * Inserts or updates an entry into the cache.
     * @param key        {string} Required.
